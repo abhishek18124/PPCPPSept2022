@@ -8,6 +8,7 @@ int main() {
 	int n = sizeof(arr) / sizeof(int);
 
 	int k = 3;
+	k = k%n;
 
 	// 1. reverse arr[0...n-1] -> n elements
 
