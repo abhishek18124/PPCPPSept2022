@@ -35,7 +35,7 @@ bool isCBNumber(string str) {
 
 int main() {
 
-	string str = "61";
+	string str = "998";
 	
 	isCBNumber(str) ? cout << str  << " is a CB Number" << endl :
 	                  cout << str << " is not a CB Number" << endl;
