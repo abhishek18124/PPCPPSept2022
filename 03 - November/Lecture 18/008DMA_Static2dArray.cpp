@@ -10,10 +10,10 @@ int main() {
 
 	// cout << arr[1][2] << endl;
 	// cout << ((arr+1)+2) << endl;
-
+                     
 	// arr[1][2] = *((arr + 1) + 2) = *((arr + 1*4*4) + 2*4)
 
-	cout << *(*(arr+1) + 2);
+	// cout << *(*(arr+1) + 2);
 
 	return 0;
 }
