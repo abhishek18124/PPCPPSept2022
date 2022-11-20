@@ -5,6 +5,8 @@ using namespace std;
 
 int main() {
 
+	// vector<int> v;
+
 	// vector<vector<int>> v;
 
 	// vector<vector<int>> v(3, vector<int>(4));

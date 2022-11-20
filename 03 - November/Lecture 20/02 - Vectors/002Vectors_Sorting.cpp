@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 
 using namespace std;
 
@@ -11,8 +12,17 @@ using namespace std;
 */
 
 bool myGreaterComparator(int a, int b) { 
+	// if(a > b) {
+	// 	// you don't need a swap
+	// 	return true;
+	// } else {
+	// 	// you need a swap
+	// 	return false;
+	// }
+
 	return a > b;
 }
+
 
 /* 
 	return 'true' when a swap isn't required.
@@ -27,35 +37,36 @@ bool myLesserComparator(int a, int b) {
 
 int main() {
 
-	// create a vector using initialiser list
-	vector<int> v = {1, 0, 2, 4, 3};
-	cout << "size : " << v.size() << endl;
-	int n = v.size();
-	for(int i=0; i<n; i++) {
-		cout << v[i] << " ";
-	}
-	cout << endl;
+	// // create a vector using initialiser list
+	// vector<int> v = {1, 0, 2, 4, 3};
+	// cout << "size : " << v.size() << endl;
+	// int n = v.size();
+	// for(int i=0; i<n; i++) {
+	// 	cout << v[i] << " ";
+	// }
+	// cout << endl;
 
-	// reverse a vector
+	// // reverse a vector
 	
-	reverse(v.begin(), v.end());
+	// // reverse(v.begin(), v.begin()+3); // reversing first three elements
+	// reverse(v.begin(), v.end()); // reversing the entire vector
 
-	for(int i=0; i<n; i++) {
-		cout << v[i] << " ";
-	}
+	// for(int i=0; i<n; i++) {
+	// 	cout << v[i] << " ";
+	// }
 
-	cout << endl;
+	// cout << endl;
 
-	// sort a vector
+	// // sort a vector
 	
-	sort(v.begin(), v.end()); 
-	for(int i=0; i<n; i++) {
-		cout << v[i] << " ";
-	}
+	// sort(v.begin(), v.end()); 
+	// for(int i=0; i<n; i++) {
+	// 	cout << v[i] << " ";
+	// }
 
-	cout << endl;
+	// cout << endl;
 
-	// vector<int> v2 = {30, 20, 0, 10, 60, 50};
+	vector<int> v2 = {30, 20, 0, 10, 60, 50};
 	
 	// // 1. using rbegin() & rend()
 
@@ -72,12 +83,12 @@ int main() {
 	// }
 	// cout << endl;
 
-	// // 3. using custom comparator
-	// sort(v2.begin(), v2.end(), myGreaterComparator);
-	// for(int i=0; i<v2.size(); i++) {
-	// 	cout << v2[i] << " ";
-	// }
-	// cout << endl;
+	// 3. using custom comparator
+	sort(v2.begin(), v2.end(), myGreaterComparator);
+	for(int i=0; i<v2.size(); i++) {
+		cout << v2[i] << " ";
+	}
+	cout << endl;
 
 	return 0;
 }

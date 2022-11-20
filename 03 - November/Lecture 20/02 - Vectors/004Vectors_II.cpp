@@ -33,19 +33,19 @@ using namespace std;
 
 int main() {
 
-	// fill constructor 
-	vector<int> v(5); // or vector<int> v(5, 100);
-	for(int i=0; i<v.size(); i++) {
-		cout << v[i] << " ";
-	}
-	cout << endl;
+	// // fill constructor 
+	// vector<int> v(5); // or vector<int> v(5, 1);
+	// for(int i=0; i<v.size(); i++) {
+	// 	cout << v[i] << " ";
+	// }
+	// cout << endl;
 
-	// copy constructor
-	vector<int> v2 = v; // or v2(v);
+	// // copy constructor
+	// vector<int> v2 = v; // or v2(v);
 	
-	// copy assignment operator
-	vector<int> v3;
-	v3 = v;
+	// // copy assignment operator
+	// vector<int> v3;
+	// v3 = v;
 
 	// range constructor
 	vector<int> v4 = {1, 2, 3, 4, 5};
