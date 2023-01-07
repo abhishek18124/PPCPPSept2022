@@ -1,4 +1,5 @@
 // constraints 1 <= n <= 17
+// 49119 -> 2
 
 #include<iostream>
 
@@ -45,7 +46,7 @@ bool isUnique(int i, int j, bool* visited) {
 
 int main() {
 
-	string str = "692239";
+	string str = "49119";
 	int n = str.size();
 
 	bool visited[17] = {false};
