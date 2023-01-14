@@ -16,54 +16,54 @@ public:
 };
 
 void insertAtHead(ListNode*& head, int val) {
-
 	ListNode* n = new ListNode(val);
 	n->next = head; 
 	head = n;
-
 }
 
-
 void printLinkedList(ListNode* head) {
-	
-	while(head) { // head != NULL
+	while(head != NULL) {
 		cout << head->val << " ";
 		head = head->next;
 	}
-
 	cout << endl;
 }
 
-ListNode* getMidPoint(ListNode* head) {
-	if(!head) { // head == NULL
-		return head;
+ListNode* removeDuplicates(ListNode* head) {
+
+	ListNode* prev = head;
+	ListNode* curr = head->next;
+
+	while(curr != NULL) {
+		if(prev->val != curr->val) {
+			// track the cur node
+			prev->next = curr;
+			prev = curr;
+		}
+		curr = curr->next;
 	}
 
-	ListNode* slow = head;
-	ListNode* fast = head->next;
+	prev->next = NULL;
 
-	while(fast != NULL && fast->next != NULL) {
-		slow = slow->next;
-		fast = fast->next->next;
-	}
-
-	return slow;
+	return head;
+	
 }
-
 
 int main() {
 
 	ListNode* head = NULL;
 
-	insertAtHead(head, 10);
-	insertAtHead(head, 20);
-	insertAtHead(head, 30);
 	insertAtHead(head, 40);
-	insertAtHead(head, 50);
+	insertAtHead(head, 40);
+	insertAtHead(head, 30);
+	insertAtHead(head, 30);
+	insertAtHead(head, 20);
+	insertAtHead(head, 10);
+	insertAtHead(head, 10);
 
 	printLinkedList(head);
 
-	// todo ...
+	head = removeDuplicates(head);
 
 	printLinkedList(head);
 
