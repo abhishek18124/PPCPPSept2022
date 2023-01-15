@@ -3,14 +3,14 @@
 using namespace std;
 
 template <typename T>
-class node {
+class ListNode {
 public:
 
-	T data;
-	node<T>* next;
+	T val;
+	ListNode<T>* next;
 
-	node(T data) {
-		this->data = data;
+	ListNode(T val) {
+		this->val = val;
 		this->next = NULL;
 	}
 
@@ -19,7 +19,7 @@ public:
 template <typename T>
 class forward_list {
 
-	node<T>* head;
+	ListNode<T>* head;
 	int  count;
 
 	public : 
@@ -29,8 +29,8 @@ class forward_list {
 			count = 0;
 		}
 
-		void push_front(T data) {
-			node<T>* n = new node<T>(data);
+		void push_front(T val) {
+			ListNode<T>* n = new ListNode<T>(val);
 			n->next = head;
 			head = n;
 
@@ -42,7 +42,7 @@ class forward_list {
 				return;
 			}
 
-			node<T>* temp = head;
+			ListNode<T>* temp = head;
 			head = head->next;
 			delete temp;
 
@@ -58,13 +58,13 @@ class forward_list {
 		}
 
 		T front() {
-			return head->data;
+			return head->val;
 		}
 
 		void traverse() {
-			node<T>* temp = head;
+			ListNode<T>* temp = head;
 			while(temp) {
-				cout << temp->data << " ";
+				cout << temp->val << " ";
 				temp = temp->next;
 			}
 			cout << endl;
@@ -82,7 +82,7 @@ int main() {
 	fw.push_front("vaibhav");
 	fw.push_front("sahil");
 
-	cout <<  "head->data : " << fw.front() << endl;
+	cout <<  "head->val : " << fw.front() << endl;
 
 	fw.traverse();
 
@@ -91,7 +91,7 @@ int main() {
 	fw.pop_front();
 	fw.pop_front();
 
-	cout <<  "head->data : " << fw.front() << endl;
+	cout <<  "head->val : " << fw.front() << endl;
 
 	fw.traverse();
 
