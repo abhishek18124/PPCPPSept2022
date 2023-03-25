@@ -16,7 +16,7 @@ public:
         
         // transform binary tree into an undirected graph
         
-        unordered_map<TreeNode*, list<TreeNode*>> neighbourMap;
+        unordered_map<TreeNode*, list<TreeNode*>> neighbourMap; // we are using adjacency list representation to internally represent the graph
         
         queue<TreeNode*> q;
         q.push(root);
@@ -46,7 +46,8 @@ public:
             TreeNode* front = q.front(); q.pop();
             list<TreeNode*> neighbourList = neighbourMap[front];
             for(TreeNode* neighbour : neighbourList) {
-                if(distMap.find(neighbour) == distMap.end()) {
+                if(distMap.find(neighbour) == distMap.end()) { // we are using distMap itself to track vertices which are visited
+                    // neighbour is not yet visited
                     distMap[neighbour] = distMap[front]+1;
                     q.push(neighbour);
                 }
