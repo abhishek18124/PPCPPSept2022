@@ -58,7 +58,7 @@ class graph {
 			int V = vertexSet.size();
 			for(int i=1; i<=V-1; i++) {
 				for(edge<T> e : edgeList) {
-					if(distMap[e.u] != INT_MAX && 
+					if(distMap[e.u] != INT_MAX && // to avoid integer overflow
 					   distMap[e.u]+e.w < distMap[e.v]) {
 						// relax the edge from vertex u to v
 						distMap[e.v] = distMap[e.u]+e.w;

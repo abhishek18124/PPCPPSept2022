@@ -90,13 +90,22 @@ class graph {
 			sort(edgeList.begin(), edgeList.end(), edgeComparator<T>);
 
 			// 3. construct MST
+			int sum = 0;
 			vector<edge<T>> mst;
 			for(edge<T> e : edgeList) {
 				if(ds.findSet(e.u) != ds.findSet(e.v)) {
+					// u to v is a safe edge
 					ds.unionSet(e.u, e.v);
 					mst.push_back(e);
+					sum += e.w;
+					if(mst.size() == vertexSet.size() - 1) {
+						// you've selected V-1 safe edges
+						break;
+					}
 				}
 			}
+
+			cout << sum << endl;
 
 			return mst;
 		}

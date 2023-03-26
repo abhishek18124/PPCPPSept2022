@@ -19,15 +19,36 @@ class disjointSet {
 	public :
 
 	void createSet(T x) {
-		// todo ...
+		parentMap[x] = x;
+		rankMap[x] = 1;
 	}
 
 	T findSet(T x) {
-		// todo ...
+		if(parentMap[x] == x) {
+			return x; // x is the leader
+		}
+
+		return parentMap[x] = findSet(parentMap[x]); // path compression
 	}
 
 	void unionSet(T x, T y) {
-		// todo ...
+		T l_x = findSet(x);
+		T l_y = findSet(y);
+
+		if(l_x != l_y) {
+			// we can do the union
+			int r_x = rankMap[l_x];
+			int r_y = rankMap[l_y];
+			if(r_x > r_y) {
+				// make l_x as the new leader
+				parentMap[l_y] = l_x;
+				rankMap[l_x] += rankMap[l_y];
+			} else {
+				// make l_y as the new leader
+				parentMap[l_x] = l_y;
+				rankMap[l_y] += rankMap[l_x];
+			}
+		}
 	}
 
 };
